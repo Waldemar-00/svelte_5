@@ -12,3 +12,8 @@ span {
 div {
 	margin-bottom: 1rem;
 }
+input {
+	display: block;
+	margin: 1rem;
+	padding: 0.5rem 1rem;
+}

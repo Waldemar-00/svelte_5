@@ -1,6 +1,7 @@
 <script lang='ts'>
 import  '../styles/global.css'
 import Nested from './Nested.svelte'
+import Input from './Input.svelte'
 import {numObj} from './state.svelte'
 let object: any = $state([{count: 0, prop: 'object', data: 'array'}])
 function increaseCount() {
@@ -44,3 +45,4 @@ Change Done
 </button>
 
 <Nested/>
+<Input/>
