@@ -8,9 +8,11 @@
     const uid = $props.id()
     console.log(`UID ${uid} - binds with server`)
     function changeCount() {
+        $inspect.trace()
         value = value * 2
         count++
     }
+    $inspect(value, count).with(console.trace)
 </script>
 <h2>
    <div>count: {count}</div>
