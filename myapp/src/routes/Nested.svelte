@@ -5,6 +5,8 @@
     let count = $state(propCount)
     const doubleCount = $derived(count * 2)
     const doubleCountByFn = $derived.by(() => count * 2)
+    const uid = $props.id()
+    console.log(`UID ${uid} - binds with server`)
     function changeCount() {
         value = value * 2
         count++
