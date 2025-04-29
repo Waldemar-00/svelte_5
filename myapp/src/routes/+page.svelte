@@ -3,7 +3,7 @@ import  '../styles/global.css'
 import Nested from './Nested.svelte'
 import Input from './Input.svelte'
 import {numObj} from './state.svelte'
-let object: any = $state([{count: 0, prop: 'object', data: 'array'}])
+let object: any = $state([{count: 0, prop: 'object', data: 'array', value: 100}])
 function increaseCount() {
     object[0].count++
 }
@@ -25,6 +25,7 @@ const done = new IsDone(false)
 
 
 <h1>Welcome to SvelteKit {numObj.num}</h1>
+<input type="text" name='value' bind:value={object[0].value}>
 <div>
     <button type="button" onclick={() => numObj.incFn()}>
     Increase num
@@ -44,5 +45,5 @@ Push new data
 Change Done
 </button>
 
-<Nested/>
+<Nested count={object[0].count} bind:value={object[0].value}/> //! binds to child
 <Input/>
