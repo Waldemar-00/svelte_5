@@ -2,10 +2,14 @@
 import  '../styles/global.css'
 import Nested from './Nested.svelte'
 import Input from './Input.svelte'
+import  './Custom.svelte'
+// import  Custom from './Custom.svelte'
 import {numObj} from './state.svelte'
 let object: any = $state([{count: 0, prop: 'object', data: 'array', value: 100}])
+let count = $state(0)
+$inspect(count).with(console.trace)
 function increaseCount() {
-    object[0].count++
+    object[0].count = object[0].count + 1
 }
 function pushData() {
     object.push({str: 'new object has already pushed '})
@@ -21,6 +25,10 @@ class IsDone{
     }
 }
 const done = new IsDone(false)
+// $effect.root(() => {
+//     document.addEventListener('increment', () => count++)
+//     document.addEventListener('decrement', () => count--)
+// })
 </script>
 
 
@@ -47,3 +55,9 @@ Change Done
 
 <Nested count={object[0].count} bind:value={object[0].value}/> //! binds to child
 <Input/>
+<h2>{count}</h2>
+<my-math
+    ondecrement={() => count -= 1}
+	onincrement={() =>count += 1}
+    ></my-math>
+<!-- <Custom /> -->

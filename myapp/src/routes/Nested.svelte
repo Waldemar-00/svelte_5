@@ -1,18 +1,18 @@
 <script>
     import '../styles/global.css'
     let {count: propCount = 0, value=$bindable(100)} = $props() //! $bindable binds to parent
-    console.log(propCount)
+    // console.log(propCount)
     let count = $state(propCount)
     const doubleCount = $derived(count * 2)
     const doubleCountByFn = $derived.by(() => count * 2)
     const uid = $props.id()
-    console.log(`UID ${uid} - binds with server`)
+    // console.log(`UID ${uid} - binds with server`)
     function changeCount() {
-        $inspect.trace()
+        // $inspect.trace()
         value = value * 2
         count++
     }
-    $inspect(value, count).with(console.trace)
+    // $inspect(value, count).with(console.trace)
 </script>
 <h2>
    <div>count: {count}</div>
