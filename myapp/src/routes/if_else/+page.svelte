@@ -1,5 +1,6 @@
 
 <script lang='ts'>
+    import '../../styles/global.css'
     let a = $state(0)
     function increaseOn(amount: number | 'reset') {
         if(amount === 'reset') a = 0
