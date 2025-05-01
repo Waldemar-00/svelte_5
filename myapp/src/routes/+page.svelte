@@ -2,12 +2,12 @@
 import  '../styles/global.css'
 import Nested from './Nested.svelte'
 import Input from './Input.svelte'
-import  './Custom.svelte'
-// import  Custom from './Custom.svelte'
+import  '../events/event.math.svelte'
 import {numObj} from './state.svelte'
+
 let object: any = $state([{count: 0, prop: 'object', data: 'array', value: 100}])
 let count = $state(0)
-$inspect(count).with(console.trace)
+// $inspect(count).with(console.trace)
 function increaseCount() {
     object[0].count = object[0].count + 1
 }
@@ -25,31 +25,27 @@ class IsDone{
     }
 }
 const done = new IsDone(false)
-// $effect.root(() => {
-//     document.addEventListener('increment', () => count++)
-//     document.addEventListener('decrement', () => count--)
-// })
 </script>
 
 
 <h1>Welcome to SvelteKit {numObj.num}</h1>
-<input type="text" name='value' bind:value={object[0].value}>
+<input type=text name=value bind:value={object[0].value}>
 <div>
     <button type="button" onclick={() => numObj.incFn()}>
     Increase num
     </button>
 </div>
 
-<button type="button" onclick={increaseCount}>
+<button type=button onclick={increaseCount}>
 Increase count {object[0].count}
 </button>
-<button type="button" onclick={pushData}>
+<button type=button onclick={pushData}>
 Push new data
 </button>
 <h2>{object[1]?.str}</h2>
 
 <h2>Done is <span>{done.done}</span></h2>
-<button type="button" onclick={done.changeDone}>
+<button type=button onclick={done.changeDone}>
 Change Done
 </button>
 
@@ -60,4 +56,3 @@ Change Done
     ondecrement={() => count -= 1}
 	onincrement={() =>count += 1}
     ></my-math>
-<!-- <Custom /> -->

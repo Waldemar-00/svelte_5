@@ -1,3 +1,8 @@
+<!--
+@component
+It's  component exists for learning SVELTE =>
+It is my comment.
+-->
 <script>
     import '../styles/global.css'
     let {count: propCount = 0, value=$bindable(100)} = $props() //! $bindable binds to parent
