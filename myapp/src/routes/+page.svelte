@@ -27,7 +27,7 @@ class IsDone{
 const done = new IsDone(false)
 </script>
 
-
+{@debug object}
 <h1>Welcome to SvelteKit {numObj.num}</h1>
 <input type=text name=value bind:value={object[0].value}>
 <div>
