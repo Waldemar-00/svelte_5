@@ -13,6 +13,7 @@
         clearInterval(interval)
         }, 1000)
 </script>
+
 {@render snp(100, 600)}
 {#snippet sum(a: number, b: number)}
     {@const res =  a + b}

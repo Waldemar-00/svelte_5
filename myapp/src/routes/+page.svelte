@@ -5,7 +5,7 @@ import Input from './Input.svelte'
 import  '../events/event.math.svelte'
 import {numObj} from './state.svelte'
 
-let object: any = $state([{count: 0, prop: 'object', data: 'array', value: 100}])
+let object: any = $state([{count: 0, prop: 'object', data: 'array', value: 'start'}])
 let count = $state(0)
 // $inspect(count).with(console.trace)
 function increaseCount() {
@@ -27,9 +27,9 @@ class IsDone{
 const done = new IsDone(false)
 </script>
 
-{@debug object}
+<!-- {@debug object} -->
 <h1>Welcome to SvelteKit {numObj.num}</h1>
-<input type=text name=value bind:value={object[0].value}>
+<input type=text name=value bind:value={() => object[0].value, (v) => object[0].value = v.toUpperCase() }>
 <div>
     <button type="button" onclick={() => numObj.incFn()}>
     Increase num
