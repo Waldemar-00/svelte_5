@@ -1,6 +1,7 @@
 <script lang='ts'>
     import '../../styles/global.css'
     import Snippet from './Snippet.svelte'
+    import Div from './Div.svelte'
     let flag = $state(false)
     function toggleFlag() {
         flag = !flag
@@ -36,6 +37,17 @@
         🚀
     {/if}
 </h2>
+<Div text={'Some children with snippet'}>
+    <table>
+        {#snippet header()}
+            <th>fruit</th>
+            <th>qty</th>
+            <th>price</th>
+            <th>total</th>
+        {/snippet}
+        {@render header()}
+    </table>
+</Div>
 {#snippet countdown(count: number)}
     {#if count > 0}
         <div>{count}...</div>
@@ -48,3 +60,10 @@
 {@render countdown(10)}
 
 <Snippet {countdown}/>
+
+<style>
+    table {
+        border: 1px solid green;
+        padding: 0.5rem;
+    }
+</style>
