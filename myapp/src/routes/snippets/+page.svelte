@@ -2,6 +2,7 @@
     import '../../styles/global.css'
     import Snippet from './Snippet.svelte'
     import Div from './Div.svelte'
+    import {snp} from './ExportSnippet.svelte'
     let flag = $state(false)
     function toggleFlag() {
         flag = !flag
@@ -12,7 +13,7 @@
         clearInterval(interval)
         }, 1000)
 </script>
-
+{@render snp(100, 600)}
 {#snippet sum(a: number, b: number)}
     <h2>{a} + {b} = {a + b}</h2>
 {/snippet}
@@ -38,15 +39,15 @@
     {/if}
 </h2>
 <Div text={'Some children with snippet'}>
-    <table>
+    <ul>
         {#snippet header()}
-            <th>fruit</th>
-            <th>qty</th>
-            <th>price</th>
-            <th>total</th>
+            <li>fruit</li>
+            <li>qty</li>
+            <li>price</li>
+            <li>total</li>
         {/snippet}
         {@render header()}
-    </table>
+    </ul>
 </Div>
 {#snippet countdown(count: number)}
     {#if count > 0}
@@ -60,10 +61,3 @@
 {@render countdown(10)}
 
 <Snippet {countdown}/>
-
-<style>
-    table {
-        border: 1px solid green;
-        padding: 0.5rem;
-    }
-</style>

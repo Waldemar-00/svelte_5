@@ -3,7 +3,7 @@
 </script>
 <div>
     <h2>{text}</h2>
-    <h2>{@render children()}</h2>
+    <h2>{@render children?.()}</h2>
 </div>
 <style>
     div {
