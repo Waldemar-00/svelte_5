@@ -15,10 +15,12 @@
 </script>
 {@render snp(100, 600)}
 {#snippet sum(a: number, b: number)}
-    <h2>{a} + {b} = {a + b}</h2>
+    {@const res =  a + b}
+    <h2>{a} + {b} = {res}</h2>
 {/snippet}
 {#snippet mult(a: number, b: number)}
-    <h2>{a} * {b} = {a * b}</h2>
+{@const res = a * b}
+    <h2>{a} * {b} = {res}</h2>
 {/snippet}
 
 {@render (flag ? mult : sum)(1, 3)}
