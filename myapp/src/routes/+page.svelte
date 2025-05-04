@@ -4,9 +4,16 @@ import Nested from './Nested.svelte'
 import Input from './Input.svelte'
 import  '../events/event.math.svelte'
 import {numObj} from './state.svelte'
+	import { onMount } from 'svelte';
 
 let object: any = $state([{count: 0, prop: 'object', data: 'array', value: 'start'}])
 let count = $state(0)
+let nestedComponent = $state()
+onMount(() => {
+    $inspect(nestedComponent).with(console.log)
+    //@ts-ignore
+    console.log(nestedComponent?.value)
+})
 // $inspect(count).with(console.trace)
 function increaseCount() {
     object[0].count = object[0].count + 1
@@ -49,7 +56,7 @@ Push new data
 Change Done
 </button>
 
-<Nested count={object[0].count} bind:value={object[0].value}/> //! binds to child
+<Nested count={object[0].count} bind:value={object[0].value} bind:this={nestedComponent}/> //! binds to child
 <Input/>
 <h2>{count}</h2>
 <my-math
