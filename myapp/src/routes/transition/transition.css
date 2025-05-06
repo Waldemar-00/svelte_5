@@ -1,0 +1,28 @@
+div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 90vw;
+	height: 40vh;
+	margin: 0 auto;
+	background-color: yellow;
+}
+.inner,
+.fly {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40vw;
+	height: 17vh;
+	margin: 0 auto;
+	border: 2px solid green;
+	gap: 1rem;
+}
+button {
+	display: inline-block;
+	margin: 1rem;
+}
+input {
+	width: 2rem;
+	height: 2rem;
+}

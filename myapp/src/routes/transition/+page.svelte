@@ -1,8 +1,11 @@
 <script>
-	import { fade } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
     import '../../styles/global.css'
+    import './transition.css'
     let isInner = $state(false)
     let isOuter = $state(false)
+
+    let checked = $state(false)
 </script>
 {#if isOuter}
     <div>
@@ -20,28 +23,13 @@
 }}>
     Turn on/off transition fade
 </button>
-<style>
-    div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 90vw;
-        height: 40vh;
-        margin: 0 auto;
-        background-color: yellow;
-    }
-    .inner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40vw;
-        height: 17vh;
-        margin: 0 auto;
-        border: 2px solid green;
-        gap: 1rem;
-    }
-    button {
-        display: inline-block;
-        margin: 1rem;
-    }
-</style>
+<hr>
+<label>
+    <input type=checkbox bind:checked>
+</label>
+
+{#if checked}
+    <div class=fly in:fly={{y: 270}} out:fade>
+        <h2>Transition: fly in and fade out</h2>
+    </div>
+{/if}
