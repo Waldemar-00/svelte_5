@@ -1,5 +1,6 @@
 <script lang="ts">
     import '../../styles/global.css'
+	import Block from './Block.svelte';
     let color = $state('green')
     function changeColor(c: string) {
         color = c
@@ -26,6 +27,7 @@
 <hr>
 <h2 class={[large && 'large', 'blue' ]}>Classes in Array</h2>
 <button onclick={toggleSize}>Toggle font-size</button>
+<Block --h1-color='red' --h2-color='green' --h3-color='purple' --h4-color='blue'/>
 <style>
     .brown {
         color: brown;
